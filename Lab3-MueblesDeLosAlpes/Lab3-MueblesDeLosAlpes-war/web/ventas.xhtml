@@ -9,6 +9,8 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <ui:param name="ventasBean" value="#{ventasBean}" />
 
     <ui:param name="titulo" value="Reporte de ventas" />
     <ui:define name="body">
@@ -26,6 +28,7 @@
         </h:panelGroup>
         
         <h:form>
+            <p:growl id="growl" showDetail="true" />
             <p:dataTable
                     id="data"
                     value="#{ventasBean.ventas}"
@@ -41,8 +44,8 @@
                     <h:outputText value="#{file.fechaVenta}" />
                 </p:column>
                 
-                <p:column headerText="producto" sortBy="#{file.producto}">
-                    <h:outputText value="#{file.producto}" />
+                <p:column headerText="producto" sortBy="#{file.producto.nombre}">
+                    <h:outputText value="#{file.producto.nombre}" />
                 </p:column>
                 
                 <p:column headerText="cantidad" sortBy="#{file.cantidad}">
@@ -53,11 +56,14 @@
                     <h:outputText value="#{file.ciudad}" />
                 </p:column>
                 
-                <p:column headerText="comprador" sortBy="#{file.comprador}">
-                    <h:outputText value="#{file.comprador}" />
+                <p:column headerText="comprador" sortBy="#{file.comprador.login}">
+                    <h:outputText value="#{file.comprador.login}" />
                 </p:column>
             
             </p:dataTable>
+            
+            <p:chart type="bar" model="#{ventasBean.barModel}" style="height:300px"/>
+            
         </h:form>
         
        

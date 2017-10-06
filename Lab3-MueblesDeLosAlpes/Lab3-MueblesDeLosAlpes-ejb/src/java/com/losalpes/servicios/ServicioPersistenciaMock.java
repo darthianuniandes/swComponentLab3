@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import javax.ejb.Singleton;
 import javax.ejb.Stateless;
 
 /**
@@ -104,15 +105,18 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
             //Agrega usuarios al sistema
             usuarios.add(new Usuario("admin", "adminadmin", TipoUsuario.Administrador));
             usuarios.add(new Usuario("client", "clientclient", TipoUsuario.Cliente));
-
+            
             registrosVentas = new ArrayList<RegistroVenta>();
-            Random r = new Random();
-            for (int e = 0; e < 8; e++) {
+            
+            for (int e = 1; e < 8; e++) {
                 RegistroVenta venta = new RegistroVenta();
                 venta.setCantidad(e);
                 venta.setProducto(muebles.get(e));
-                venta.setFechaVenta(new Date(r.nextInt()));
+                venta.setComprador(new Usuario("Batman","batipass",TipoUsuario.Cliente));
+                venta.setFechaVenta(new Date());
+                venta.getFechaVenta().setDate(e);
                 venta.setCiudad("Bogotá");
+                registrosVentas.add(venta);
             }
         }
     }

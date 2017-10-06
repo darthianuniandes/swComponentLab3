@@ -173,4 +173,10 @@ public class RegistroVenta
         this.comprador = comprador;
     }
 
+    @Override
+    public String toString() {
+        return "RegistroVenta{" + "fechaVenta=" + fechaVenta + ", producto=" + producto + ", cantidad=" + cantidad + ", ciudad=" + ciudad + ", comprador=" + comprador + '}';
+    }
+
+    
 }

@@ -9,14 +9,13 @@ import com.losalpes.entities.RegistroVenta;
 import com.losalpes.excepciones.OperacionInvalidaException;
 import java.util.List;
 import javax.ejb.EJB;
-import javax.ejb.Stateful;
 import javax.ejb.Stateless;
 
 /**
  *
  * @author darthian
  */
-@Stateful
+@Stateless
 public class ServicioVentasMock implements IServicioVentasMockLocal, IServicioVentasMockRemote {
     
     @EJB
@@ -51,7 +50,6 @@ public class ServicioVentasMock implements IServicioVentasMockLocal, IServicioVe
 
     @Override
     public List<RegistroVenta> darRegistroVenta() {
-        System.out.println("servicio:"+persistencia.findAll(RegistroVenta.class).size());
         return persistencia.findAll(RegistroVenta.class);
     }
 
