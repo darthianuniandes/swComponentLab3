@@ -15,13 +15,11 @@ package com.losalpes.servicios;
 import com.losalpes.entities.Mueble;
 import com.losalpes.entities.Usuario;
 import java.util.ArrayList;
-import javax.ejb.Local;
 
 /**
  * Contrato funcional de los servicios para el carrito de compras
  * 
  */
-@Local
 public interface IServicioCarritoMockLocal
 {
 
