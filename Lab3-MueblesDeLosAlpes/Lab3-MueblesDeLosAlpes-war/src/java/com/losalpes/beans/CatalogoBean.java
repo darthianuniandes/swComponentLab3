@@ -14,6 +14,7 @@ package com.losalpes.beans;
 
 import com.losalpes.entities.Mueble;
 import com.losalpes.entities.TipoMueble;
+import com.losalpes.excepciones.OperacionInvalidaException;
 import com.losalpes.servicios.IServicioCatalogoMockLocal;
 import java.io.Serializable;
 import java.util.List;
@@ -97,7 +98,7 @@ public class CatalogoBean implements Serializable
     /**
      * Agrega un nuevo mueble al sistema
      */
-    public void agregarMueble()
+    public void agregarMueble() throws OperacionInvalidaException
     {
         catalogo.agregarMueble(mueble);
         mueble=new Mueble();
@@ -107,7 +108,7 @@ public class CatalogoBean implements Serializable
      * Elimina un mueble del sistema
      * @param evento Evento que tiene como parámetro el ID del mueble
      */
-    public void eliminarMueble(ActionEvent evento)
+    public void eliminarMueble(ActionEvent evento) throws OperacionInvalidaException
     {
         FacesContext context = FacesContext.getCurrentInstance();
         Map map = context.getExternalContext().getRequestParameterMap();
