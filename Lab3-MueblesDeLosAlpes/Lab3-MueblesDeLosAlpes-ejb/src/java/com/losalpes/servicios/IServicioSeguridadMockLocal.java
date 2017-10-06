@@ -14,11 +14,14 @@ package com.losalpes.servicios;
 
 import com.losalpes.entities.Usuario;
 import com.losalpes.excepciones.AutenticacionException;
+import javax.ejb.Local;
+import javax.ejb.Remote;
 
 /**
  * Contrato funcional de los servicios de autenticación en el sistema
  * 
  */
+@Local
 public interface IServicioSeguridadMockLocal
 {
 

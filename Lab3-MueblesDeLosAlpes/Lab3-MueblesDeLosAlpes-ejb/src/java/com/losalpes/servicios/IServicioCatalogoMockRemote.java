@@ -13,13 +13,16 @@
 package com.losalpes.servicios;
 
 import com.losalpes.entities.Mueble;
+import com.losalpes.excepciones.OperacionInvalidaException;
 import java.util.List;
+import javax.ejb.Remote;
 
 
 /**
  * Contrato funcional de los servicios que se le prestan al catálogo
  * 
  */
+@Remote
 public interface IServicioCatalogoMockRemote
 {
 
@@ -27,13 +30,13 @@ public interface IServicioCatalogoMockRemote
      * Agrega un mueble al sistema
      * @param mueble Nuevo mueble
      */
-    public void agregarMueble(Mueble mueble);
+    public void agregarMueble(Mueble mueble) throws OperacionInvalidaException;
 
     /**
      * Elimina un mueble del sistema
      * @param id Identificador único del mueble a eliminar
      */
-    public void eliminarMueble(long id);
+    public void eliminarMueble(long id) throws OperacionInvalidaException;
 
     /**
      * Devuelve todos los muebles del sistema
